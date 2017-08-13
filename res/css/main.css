@@ -1,0 +1,10 @@
+body {
+  -webkit-user-select: none;
+  margin: 8px;
+}
+
+
+
+img, .nodrag {
+  -webkit-user-draggable: false;
+}

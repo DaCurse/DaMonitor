@@ -1,0 +1,16 @@
+{
+  "name": "damonitor",
+  "version": "1.0.0",
+  "description": "A simple system-monitoring app",
+  "main": "main.js",
+  "dependencies": {
+    "electron": "^1.7.5",
+    "os-utils": "^0.0.14"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "DaCurse0",
+  "license": "Apache 2.0"
+}

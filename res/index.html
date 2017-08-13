@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/win.css">
+
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>if (window.module) module = window.module;</script>
+  </head>
+  <body onload="DaMonitorModule.Initialize()">
+    <div class="window-buttons nodrag">
+        <div id="minimize">minimize</div>
+        <div id="maximize">Maximize</div>
+        <div id="close">Close</div>
+    </div>
+
+    <h1>My App</h1>
+
+    <script>
+      const config = require('../modules/config.js').loadConfig();
+      const { remote } = require('electron');
+      document.title = config.app.title;
+    </script>
+    <script src="js/index.js"></script>
+    <script src="js/win.js"></script>
+  </body>
+</html>
