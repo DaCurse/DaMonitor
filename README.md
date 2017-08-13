@@ -2,10 +2,10 @@
 
 A simple application made with Electron.js
 
-##Running it 
+## Running it 
 `npm start`
   
-##Config.json:
+## Config.json:
  * app: Edit the window title
  * win: Edit the Electron BrowserWindow properties
  * windowjs: Disable/Enable custom window buttons
