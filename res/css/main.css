@@ -3,8 +3,15 @@ body {
   margin: 8px;
 }
 
+hr {
+  margin-bottom: 0;
+}
 
+.jumbotron {
+  padding: 2rem 2rem;
+  background: none;
+}
 
-img, .nodrag {
-  -webkit-user-draggable: false;
+.progress-bar {
+  height: 50px;
 }

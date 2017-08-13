@@ -1,7 +1,6 @@
 const {app, BrowserWindow} = require('electron'),
 path = require('path'),
 url = require('url'),
-os = require('os-utils');
 config = require('./modules/config.js');
 
 let window, settings = config.loadConfig();
@@ -14,7 +13,6 @@ function createWindow() {
     window.webContents.openDevTools();
   else
     window.setMenu(null);
-
 
   window.on('close', () => {
     window = null;
