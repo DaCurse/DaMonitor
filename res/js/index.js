@@ -13,7 +13,7 @@ const DaMonitorModule = (function() {
   cpuInterval = null,
 
   $ramJumbotron = null,
-  $ramProgress =null,
+  $ramProgress = null,
   $ramUsage = null,
   $ramFree = null,
   $ramTotal = null,
@@ -31,6 +31,8 @@ const DaMonitorModule = (function() {
         resolve(data);
       });
     });
+
+
 
   }
 
@@ -90,32 +92,56 @@ const DaMonitorModule = (function() {
 
   function MonitorRAM() {
 
+    let convertDataTypes = function(mb) {
+      return (mb < 900) ?
+      `${mb.toFixed(2)}MB` : `${(mb / 1024).toFixed(2)}GB`;
+    }
+
+    let totalMem = convertDataTypes(os.totalmem());
+    let freeMem = convertDataTypes(os.freemem());
+    let freeMemP = os.freememPercentage() * 100;
+    let usedMem = convertDataTypes(os.totalmem() - os.freemem());
+    let usedMemP = 100 - freeMemP;
+
+    $ramTotal.text(`Installed Memory: ${totalMem}`);
+    $ramFree.text(`Free Memory: ${Math.floor(freeMemP)}% (${freeMem})`);
+    $ramUsage.text(`Memory Used: ${Math.floor(usedMemP)}% (${usedMem})`);
+    $ramProgress.css('width', `${usedMemP}%`);
+
   }
 
+
+
   return {
-    Initialize: function() {
+    Initialize: async function() {
       WindowJS();
-    },
-    MonitorCPU: async function() {
       await loadComponent('cpu');
+      await loadComponent('ram');
       $cpuJumbotron = $('#cpu-monitor');
       $cpuProgress = $('#cpu-progress');
       $cpuCores = $('#cpu-cores');
       $cpuFree = $('#cpu-free');
       $cpuName = $('#cpu-name');
       $cpuUsage = $('#cpu-usage');
-      cpuInterval = setInterval(MonitorCPU, 1e3);
-    },
-    MonitorRAM: async function() {
-      await loadComponent('ram');
       ramInterval = setInterval(MonitorRAM, 1e3);
       $ramJumbotron = $('#ram-monitor');
       $ramProgress = $('#ram-progress');
       $ramUsage = $('#ram-usage');
-      $ramFree = $('#ramFree');
+      $ramFree = $('#ram-free');
       $ramTotal = $('#ram-ammount');
     },
-    HideComponent: unloadComponent
+    MonitorCPU: function(state) {
+      if(state) {
+        $cpuJumbotron.show();
+        cpuInterval = setInterval(MonitorCPU, 1e3);
+      } else unloadComponent('cpu');
+    },
+    MonitorRAM: function(state) {
+      if(state) {
+        $ramJumbotron.show();
+        ramInterval = setInterval(MonitorRAM, 1e3);
+      } else unloadComponent('ram');
+    },
   }
 
 })();
