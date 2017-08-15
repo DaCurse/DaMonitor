@@ -7,7 +7,7 @@
     "height": 600,
     "frame": false,
     "resizable": false,
-    "icon": "res\\img\\favicon.png"
+    "icon": "D:\\Daniel\\Documents\\Prog\\Web\\NodeJS\\Electron\\system-monitoring-app\\res\\img\\favicon.png"
   },
   "windowjs": {
     "minimize": true,

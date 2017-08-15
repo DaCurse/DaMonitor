@@ -1,6 +1,8 @@
+
 body {
   -webkit-user-select: none;
   margin: 8px;
+  overflow-y: auto;
 }
 
 hr {
