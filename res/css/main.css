@@ -1,19 +1,43 @@
-
 body {
   -webkit-user-select: none;
   margin: 8px;
-  overflow-y: auto;
 }
 
-hr {
-  margin-bottom: 0;
+#menu {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .jumbotron {
-  padding: 2rem 2rem;
+  padding: 0 2rem;
   background: none;
 }
 
 .progress-bar {
   height: 50px;
+  transition: width .5s;
+}
+
+.menu-btn {
+  padding: 79px;
+  font-size: 32pt;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: 30px;
+  cursor: pointer;
+  display: inline;
+}
+
+.menu-btn.cpu, .menu-btn.cpu:active {
+  background-image: url(../img/cpu.png);
+}
+
+.menu-btn.ram, .menu-btn.ram:active {
+  background-image: url(../img/ram.png);
+}
+
+.menu-btn span {
+  position: relative;
+  top: 20px;
 }
