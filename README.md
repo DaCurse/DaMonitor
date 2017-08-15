@@ -3,7 +3,7 @@
 A simple application made with Electron.js
 
 ## Running it 
-`npm start` OR run the exe
+`npm start` OR run the exe (You need electron to be installed globaly right now)
   
 ## Config.json:
  * app: Edit the window title
